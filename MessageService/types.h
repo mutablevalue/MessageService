@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <array>
+#include <fstream>
 
 //base
 using u32 = std::uint32_t;

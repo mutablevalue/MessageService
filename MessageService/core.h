@@ -1,14 +1,10 @@
 #pragma once
-#include "menu.h"
-#include "profile.h"
-#include "Key.h"
+
+#include "types.h"
 
 class Core {
 public:
-	Core() {
-		Profile UserProfile;
-		Key Key;
-		Menu Menu(UserProfile);
-	}
-
+    Core();
+private:
+    void Run();
 };

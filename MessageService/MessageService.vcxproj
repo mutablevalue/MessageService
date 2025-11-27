@@ -124,15 +124,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChatClient.cpp" />
+    <ClCompile Include="ChatServer.cpp" />
+    <ClCompile Include="core.cpp" />
     <ClCompile Include="file.cpp" />
+    <ClCompile Include="NgrokTunnel.cpp" />
     <ClCompile Include="start.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChatClient.h" />
+    <ClInclude Include="ChatServer.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="file.h" />
     <ClInclude Include="input_utils.h" />
     <ClInclude Include="Key.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="NgrokTunnel.h" />
     <ClInclude Include="profile.h" />
     <ClInclude Include="types.h" />
   </ItemGroup>

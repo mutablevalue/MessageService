@@ -108,8 +108,7 @@ inline COMMAND ParseInput(std::string_view input) {
 
 	char buffer[64]; // creating a new buffer
 	if (input.size() >= sizeof(buffer)) return Fail(Command); // reject too-long lines
-
-	size_t Length = std::min(input.size(), sizeof(buffer) - 1);
+	size_t Length = (std::min)(input.size(), sizeof(buffer) - 1);
 
 	std::memcpy(buffer, input.data(), Length); buffer[Length] = '\0'; // Making sure null term is there
 	char* context = nullptr;

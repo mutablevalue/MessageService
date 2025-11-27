@@ -1,52 +1,61 @@
 #pragma once
+
 #include <string>
+#include <iostream>
 #include "input_utils.h"
 #include "profile.h"
-
+#include "types.h"
 
 class Menu {
+public:
+    explicit Menu(Profile& user)
+        : CurrentUser(user) {
+    }
 
-protected:
-	COMMAND CurrentCommand;
-	Profile CurrentUser;
+    COMMAND Run() {
+        for (;;) {
+            std::cout << "Type in your command\n";
 
+            std::string input;
+            if (!std::getline(std::cin, input)) {
+                CurrentCommand.INPUT = MENU_INPUTS::CLOSE;
+                return CurrentCommand;
+            }
 
-	inline const COMMAND GetCurrentCommand() const {
-		return CurrentCommand;
-	}
+            CurrentCommand = ParseInput(input);
+            CurrentCommand.PrintCommand();
+            ExecuteCommand();
+
+            if (CurrentCommand.INPUT == MENU_INPUTS::CREATE ||
+                CurrentCommand.INPUT == MENU_INPUTS::CONNECT ||
+                CurrentCommand.INPUT == MENU_INPUTS::CLOSE) {
+                return CurrentCommand;
+            }
+        }
+    }
 
 private:
-	inline void ExecuteCommand() {
-		switch (CurrentCommand.INPUT) {
+    COMMAND CurrentCommand{};
+    Profile& CurrentUser;
 
-		case MENU_INPUTS::USERNAME: {
-			Possible Data = CurrentCommand.DATA;
-			char* Username = std::get<USERNAME>(Data).NAME;
-			CurrentUser.SetName(Username);
-			break;
-		}
-		case MENU_INPUTS::COLOR: {
-			Possible Data = CurrentCommand.DATA;
-			u32 Color = std::get<COLOR>(Data).RGBA;
-			CurrentUser.SetColor(Color);
-			break;
-		}
-		default: break;
+    static constexpr std::size_t MaxNameLength = 16U;
 
-		}
-	}
-
-public:
-	Menu(const Profile& User) : CurrentUser(User) {
-		while (CurrentCommand.INPUT != MENU_INPUTS::CLOSE) {
-			std::cout << "Type in your command \n";
-			std::string input;
-			std::getline(std::cin, input);
-			CurrentCommand = ParseInput(input);
-			CurrentCommand.PrintCommand();
-			ExecuteCommand();
-		}
-		std::cout << "Closing Menu";
-	}
-	Menu() = default;
+    void ExecuteCommand() {
+        switch (CurrentCommand.INPUT) {
+        case MENU_INPUTS::USERNAME: {
+            Possible data = CurrentCommand.DATA;
+            const USERNAME& usernameData = std::get<USERNAME>(data);
+            CurrentUser.SetName(usernameData.NAME);
+            break;
+        }
+        case MENU_INPUTS::COLOR: {
+            Possible data = CurrentCommand.DATA;
+            const COLOR& colorData = std::get<COLOR>(data);
+            CurrentUser.SetColor(colorData.RGBA);
+            break;
+        }
+        default:
+            break;
+        }
+    }
 };
