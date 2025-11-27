@@ -10,6 +10,7 @@ One instance runs as the **server**, others connect as **clients**.
 - Visual Studio with **Desktop development for C++**
 - Same Wi-Fi / LAN network
 - ngrok tested for external networking, unstable
+- You need to use the SLN for code organization (SORRY)
 
 ---
 
