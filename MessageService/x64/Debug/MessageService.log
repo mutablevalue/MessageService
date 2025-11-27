@@ -1,7 +1,4 @@
-﻿  ChatClient.cpp
-  ChatServer.cpp
-  core.cpp
-  NgrokTunnel.cpp
-  start.cpp
+﻿  core.cpp
+  menu.cpp
   Generating Code...
   MessageService.vcxproj -> C:\Users\ciner\source\repos\MessageService\x64\Debug\MessageService.exe

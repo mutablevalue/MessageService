@@ -128,7 +128,7 @@
     <ClCompile Include="ChatServer.cpp" />
     <ClCompile Include="core.cpp" />
     <ClCompile Include="file.cpp" />
-    <ClCompile Include="NgrokTunnel.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="start.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +139,6 @@
     <ClInclude Include="input_utils.h" />
     <ClInclude Include="Key.h" />
     <ClInclude Include="menu.h" />
-    <ClInclude Include="NgrokTunnel.h" />
     <ClInclude Include="profile.h" />
     <ClInclude Include="types.h" />
   </ItemGroup>

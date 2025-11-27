@@ -25,9 +25,6 @@
     <Filter Include="Header Files\Service">
       <UniqueIdentifier>{02ee575c-3fcd-411f-a345-94d7f5625727}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Service\ngrok">
-      <UniqueIdentifier>{51de4eb5-03ea-4803-9772-8adabfa0bbb4}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="start.cpp">
@@ -42,11 +39,11 @@
     <ClCompile Include="ChatServer.cpp">
       <Filter>Header Files\Service</Filter>
     </ClCompile>
-    <ClCompile Include="NgrokTunnel.cpp">
-      <Filter>Header Files\Service\ngrok</Filter>
-    </ClCompile>
     <ClCompile Include="core.cpp">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>Header Files\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,9 +73,6 @@
     </ClInclude>
     <ClInclude Include="ChatServer.h">
       <Filter>Header Files\Service</Filter>
-    </ClInclude>
-    <ClInclude Include="NgrokTunnel.h">
-      <Filter>Header Files\Service\ngrok</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
