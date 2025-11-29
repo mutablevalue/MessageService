@@ -28,6 +28,15 @@ COMMAND Menu::Run() {
     for (;;) {
         std::cout << "Type in your command\n";
 
+		//Added examples of commands here:
+		std::cout << "Examples:\n";
+		std::cout << "  CONNECT 127.0.0.1 6953\n";
+		std::cout << "  USERNAME MyName\n";
+		std::cout << "  NAME OtherName\n";
+		std::cout << "  COLOR 0xFF00FF00 (Hex/Decimal color)\n";
+		std::cout << "  CREATE\n";
+		std::cout << "  CLOSE\n";
+
         std::string input;
         if (!std::getline(std::cin, input)) {
             // EOF or error -> treat as CLOSE so Core can exit.
